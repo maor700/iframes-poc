@@ -1,0 +1,38 @@
+
+.layout {}
+
+.links{
+    display: flex;
+}
+
+.links-con {
+    display: inline-block;
+    height: calc(100vh - 1em);
+    width: -moz-fit-content;
+    width: 19%;
+    border: 1px solid #eee;
+}
+
+.view {
+    padding: 1em;
+    display: inline-block;
+    width: calc(81% - 4em);
+    height: calc(100vh - 4em);
+    position: relative;
+    vertical-align: top;
+}
+
+.links {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 0.5em;
+}
+
+.links.active {
+    background: #eee;
+}
+
+.links-con a {
+    text-decoration: none;
+    
+}
