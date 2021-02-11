@@ -3,6 +3,7 @@ import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import AsyncMessage from "./AsyncMessage/AsyncMessage";
 import "./Examples.css";
 import Notifications from "./Notofications/Notifications";
+import PWACache from "./PWACache/PWACache";
 import SharedModal from "./SharedModal/SharedModal";
 import SharedModel from "./SharedModel/SharedModel";
 import StateManagment from "./StateManagment/StateManagment";
@@ -93,7 +94,7 @@ export const ExamplesMenu = () => {
                             <UiThings/>
                         </Route>
                         <Route path="/pwa_cache">
-                            <h2>PWA Cache</h2>
+                            <PWACache/>
                         </Route>
                         <Route path="/local_storage_cookie">
                             <h2>Local Storage</h2>

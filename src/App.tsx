@@ -16,6 +16,7 @@ import { ModalIframe } from './examples/SharedModal/ModalIframe';
 import {StateManagementIframeWrapper} from './examples/StateManagment/StateManagmentIframe';
 import UiThings from './examples/UiThings.tsx/UiThings';
 import { UiThingsIframe } from './examples/UiThings.tsx/UiThingsIframe';
+import { PWACacheIframe } from './examples/PWACache/PWACacheIframe';
 
 function App() {
   return (
@@ -41,10 +42,13 @@ function App() {
             <NotificationIframe />
           </Route>
           <Route path="/state_managemnet_Iframe">
-            <StateManagementIframeWrapper />
+            <StateManagementIframeWrapper />\
           </Route>
           <Route path="/ui_things_iframe">
             <UiThingsIframe/>
+          </Route>
+          <Route path="/PWA_Cache_iframe">
+            <PWACacheIframe/>
           </Route>
         </Switch>
       </Router>
