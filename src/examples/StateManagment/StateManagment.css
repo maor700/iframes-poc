@@ -1,14 +1,13 @@
-.con{
+.con {}
 
-}
-
-iframe{
+iframe.todo {
     border: none;
     border: 1px solid #eee;
-    margin: 1em;
-    padding: 0.5em;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-.field{
+.field {
     padding: 0.5em;
 }

@@ -7,6 +7,7 @@ import PWACache from "./PWACache/PWACache";
 import SharedModal from "./SharedModal/SharedModal";
 import SharedModel from "./SharedModel/SharedModel";
 import StateManagment from "./StateManagment/StateManagment";
+import { StateManagmentDexie } from "./StateManagment/StateManagmentDexie";
 import UiThings from "./UiThings.tsx/UiThings";
 const TwoWayMessage = React.lazy(() => import("./TwoWayMessage/TwoWayMessage"));
 
@@ -38,6 +39,11 @@ export const ExamplesMenu = () => {
                     <Link to={"/state_management"}>
                         <div className="links">
                             State Management
+                        </div>
+                    </Link>
+                    <Link to={"/state_management_dexie"}>
+                        <div className="links">
+                            State Management With Dexie
                         </div>
                     </Link>
                     <Link to={"/notifications"}>
@@ -86,6 +92,9 @@ export const ExamplesMenu = () => {
                         </Route>
                         <Route path="/state_management">
                             <StateManagment/>
+                        </Route>
+                        <Route path="/state_management_dexie">
+                            <StateManagmentDexie/>
                         </Route>
                         <Route path="/shared_modal">
                             <SharedModal/>

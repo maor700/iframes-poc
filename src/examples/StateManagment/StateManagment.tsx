@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { createStore, AnyAction } from 'redux';
 import { Provider, useSelector } from 'react-redux';
 import "./StateManagment.css";
-import { StateManagementIframeWrapper } from "./StateManagmentIframe";
-import { configureStore, createReducer } from "./dynamicLoadReducers";
+import { configureStore } from "./dynamicLoadReducers";
 
 
 const StateManagment = () => {
@@ -19,9 +17,10 @@ const StateManagment = () => {
         <div className="con">
             <h2>State Management</h2>
             <div className="">{val}</div>
+            <h3>Redux</h3>
             <button onClick={()=>setShowPosts(!showPosts)}>Show Posts</button>
             <iframe title="one" height={"300px"} ref={oneRef} id="one" src="/state_managemnet_Iframe?title=users" />
-            {showPosts && <iframe title="two" height={"300px"} ref={twoRef} id="two" src="/state_managemnet_Iframe?title=posts" />}
+            {showPosts && <iframe title="two" height={"300px"} ref={oneRef} id="two" src="/state_managemnet_Iframe?title=posts" />}
         </div>
     )
 }

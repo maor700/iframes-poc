@@ -17,6 +17,14 @@ import {StateManagementIframeWrapper} from './examples/StateManagment/StateManag
 import UiThings from './examples/UiThings.tsx/UiThings';
 import { UiThingsIframe } from './examples/UiThings.tsx/UiThingsIframe';
 import { PWACacheIframe } from './examples/PWACache/PWACacheIframe';
+import { StateManagmentDexieIframe } from './examples/StateManagment/StateManagmentDexieIframe';
+import {defineCustomElements} from "todo-app/dist/loader";
+import {TodoAppData} from "./examples/StateManagment/todoDbService"
+
+defineCustomElements();
+
+export const db = new TodoAppData();
+console.log(db);
 
 function App() {
   return (
@@ -42,7 +50,10 @@ function App() {
             <NotificationIframe />
           </Route>
           <Route path="/state_managemnet_Iframe">
-            <StateManagementIframeWrapper />\
+            <StateManagementIframeWrapper />
+          </Route>
+          <Route path="/state_managemnet_dexie_Iframe">
+            <StateManagmentDexieIframe />
           </Route>
           <Route path="/ui_things_iframe">
             <UiThingsIframe/>
