@@ -1,5 +1,7 @@
 import React, { DialogHTMLAttributes, FC, useEffect, useRef, useState } from "react";
+import { ModalPortal } from "./ModalPortal";
 import { UILauncher } from "./UiLauncher";
+import "./ModalIframe.css"
 
 export const ModalIframe = () => {
     const [counter, setCounter] = useState<number>(0);
@@ -8,6 +10,7 @@ export const ModalIframe = () => {
     const modalContentRef = useRef<HTMLDivElement>(null);
     const increaseBtnRef = useRef<HTMLButtonElement>(null);
     const [uiToLaunch, setUiToLaunch] = useState<UILauncher>();
+    const [showReactModal, setShowReactModal] = useState<boolean>(false);
 
     useEffect(() => {
         import("./modalContentLitElement").then(console.log);
@@ -17,35 +20,43 @@ export const ModalIframe = () => {
 
     useEffect(() => {
         if (!window?.parent?.window) return;
-        setParentModal(window.parent.window.document.body.querySelector<HTMLDivElement>(".modals"));
+        const modalElm = window.parent.window.document.body.querySelector<HTMLDivElement>(".modals");
+
+        console.log(modalElm, "modal iframe");
+
+        setParentModal(modalElm);
     }, []);
 
     const showModal = () => {
         if (!parentModal || !modalContentRef.current) return;
-        if(!uiToLaunch){
+        if (!uiToLaunch) {
             const ui = new UILauncher(modalContentRef.current, parentModal);
             setUiToLaunch(ui);
         }
 
         uiToLaunch?.launch();
-        // const parentElement = parentModal.parentElement;
-        // const modalElm = document.createElement('div');
-        // modalElm.innerText = "Some TEXT";
-        // parentModal.innerHTML = '';
-        // parentModal.appendChild(modalContentRef.current);
-        // parentElement?.classList.add("opened");
-        // parentElement.onclick = () => { parentElement.classList.remove("opened"); parentModal?.setAttribute("open", "false"); };
-        // parentModal?.setAttribute("open", "true");
     }
 
     return (
         <>
-            <h3>{title}</h3>
-            <button onClick={showModal}>Show Modal</button>
-            <div ref={modalContentRef} style={{ color: "red" }}>
-                <hello-component />
-            </div>
-            <button onClick={()=>{(window.parent as any).Toaster.info("213123")}}> Show Toaster Message</button>
+            <button onClick={() => { setShowReactModal(true) }}>Show Modal</button>
+            {showReactModal && <ModalPortal name="my-modal">
+                <div className="modal-wrapper">
+
+                    <dialog id="my-dialog" open={showReactModal}>
+                        <div className="close" onClick={() => { setShowReactModal(false) }}>X</div>
+                        <div className="dialog-content">
+                            <h3>{title}</h3>
+                            <div ref={modalContentRef} style={{ color: "red" }}>
+                                <hello-component />
+                            </div>
+                            <button onClick={() => { setCounter(counter + 1) }}>increce</button>
+                            <div className="counter">{counter}</div>
+                            <button onClick={() => { (window.parent as any).Toaster.info("213123") }}> Show Toaster Message</button>
+                        </div>
+                    </dialog>
+                </div>
+            </ModalPortal>}
         </>
     )
 }

@@ -13,13 +13,13 @@ import SharedModel from './examples/SharedModel/SharedModel';
 import { SharedModelIfarme } from './examples/SharedModel/SharedModelIfarme';
 import { NotificationIframe } from './examples/Notofications/IframeNotifications';
 import { ModalIframe } from './examples/SharedModal/ModalIframe';
-import {StateManagementIframeWrapper} from './examples/StateManagment/StateManagmentIframe';
+import { StateManagementIframeWrapper } from './examples/StateManagment/StateManagmentIframe';
 import UiThings from './examples/UiThings.tsx/UiThings';
 import { UiThingsIframe } from './examples/UiThings.tsx/UiThingsIframe';
 import { PWACacheIframe } from './examples/PWACache/PWACacheIframe';
 import { StateManagmentDexieIframe } from './examples/StateManagment/StateManagmentDexieIframe';
-import {defineCustomElements} from "todo-app/dist/loader";
-import {TodoAppData} from "./examples/StateManagment/todoDbService"
+import { defineCustomElements } from "todo-app/dist/loader";
+import { TodoAppData } from "./examples/StateManagment/todoDbService"
 
 defineCustomElements();
 
@@ -27,6 +27,19 @@ export const db = new TodoAppData();
 console.log(db);
 
 function App() {
+  // useEffect(() => {
+  //   if ('serviceWorker' in navigator) {
+  //     // Use the window load event to keep the page load performant
+  //     navigator.serviceWorker.register("./service-worker.js")
+  //       .then(function (registration) {
+  //         // Registration was successful
+  //         console.log('ServiceWorker registration successful with scope: ', registration.scope);
+  //       }, function (err) {
+  //         // registration failed :(
+  //         console.log('ServiceWorker registration failed: ', err);
+  //       });
+  //   }
+  // }, []);
   return (
     <>
       <Router>
@@ -56,10 +69,10 @@ function App() {
             <StateManagmentDexieIframe />
           </Route>
           <Route path="/ui_things_iframe">
-            <UiThingsIframe/>
+            <UiThingsIframe />
           </Route>
           <Route path="/PWA_Cache_iframe">
-            <PWACacheIframe/>
+            <PWACacheIframe />
           </Route>
         </Switch>
       </Router>

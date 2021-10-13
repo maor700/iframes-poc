@@ -9,7 +9,7 @@ export const StateManagmentDexie = () => {
   const [listHeight, setListHeight] = useState(200);
   useEffect(() => {
     if (!listElmRef.current) return;
-    const {clientHeight, scrollHeight, sty} = listElmRef.current.contentWindow?.document.body as any;
+    const {clientHeight, scrollHeight, sty} = listElmRef.current.contentWindow?.document?.body as any || {};
     const h = Math.min(clientHeight, scrollHeight);
     h && setListHeight(h);
   }, [count]);

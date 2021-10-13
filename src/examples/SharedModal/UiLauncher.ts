@@ -15,16 +15,18 @@ export class UILauncher {
         this.dialogElement.append(this.closeBtn);
     }
     launch() {
+        const {ownerDocument} = this.launchAddress;
         // append to the parent element;
         this.dialogElement.open = false;
-        this.dialogElement.append(this.contentElement);
-        this.launchAddress.append(this.dialogElement);
+        this.dialogElement.append(this.contentElement.cloneNode(true));
+        const dialogElementCloned  = ownerDocument.importNode(this.dialogElement, true) 
+        this.launchAddress.append(dialogElementCloned);
         this.open();
     }
     land() {
         // return to the native place
         this.close();
-        this.baseOrigin.append(this.contentElement);
+        this.baseOrigin.append(this.contentElement.cloneNode(true));
         this.dialogElement.remove();
     }
     destroy() {

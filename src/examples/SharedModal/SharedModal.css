@@ -13,23 +13,13 @@ iframe{
     padding: 0.5em;
 }
 
-.modals {
+.modal-wrapper{
     position: absolute;
-    height: 0;
-    width: 0;
+    left:0;
     top: 0;
-    background: rgba(0,0,0, 0.75);
     place-content: center;
-    display: none;
-}
-.modals.opened {
     display: grid;
     height: calc(100% - 1em);
     width: 100%;
-}
-
-
-dialog#my-dialog[open="true"] {
-    display: block;
-    position: unset;
+    background: rgba(0,0,0, 0.75);
 }

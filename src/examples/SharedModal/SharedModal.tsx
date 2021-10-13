@@ -21,8 +21,7 @@ const SharedModal = () => {
                 <iframe title="one" ref={oneRef} id="one" src="/modal_iframe?title=iframeChild1" />
                 <iframe title="two" ref={twoRef} id="two" src="/modal_iframe?title=iframeChild2" />
             </div>
-            <div className="modals">
-            </div>
+            <div className={`modals`}></div>
             <div ref={toasterCon} className="toaster">
             </div>
         </>
