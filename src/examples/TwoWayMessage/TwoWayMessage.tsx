@@ -7,7 +7,6 @@ const TwoWayMessage = () => {
     const twoRef = useRef<HTMLIFrameElement>(null);
 
     const handler = useCallback(({ data }) => {
-        console.log(data)
         if (isString(data)) {
             setSomeValue(data);
         }

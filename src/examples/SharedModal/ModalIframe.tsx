@@ -1,22 +1,21 @@
 import React, { DialogHTMLAttributes, FC, useEffect, useRef, useState } from "react";
 import { ModalPortal } from "./ModalPortal";
 import { UILauncher } from "./UiLauncher";
-// import "./ModalIframe.css"
-/* eslint import/no-webpack-loader-syntax: off */
+import { useCssAsStringLoader } from "./useCssAsStringLoader";
 // @ts-ignore
-import css from "!!raw-loader!./ModalIframe.css";
+import cssBase64 from "!url-loader!./ModalIframe.css";
 
 export const ModalIframe = () => {
     const [counter, setCounter] = useState<number>(0);
     const [title, setTitle] = useState<string>('');
     const [parentModal, setParentModal] = useState<HTMLDivElement | null>();
     const modalContentRef = useRef<HTMLDivElement>(null);
-    const increaseBtnRef = useRef<HTMLButtonElement>(null);
     const [uiToLaunch, setUiToLaunch] = useState<UILauncher>();
     const [showReactModal, setShowReactModal] = useState<boolean>(false);
+    const css = useCssAsStringLoader([cssBase64]);
 
     useEffect(() => {
-        import("./modalContentLitElement").then(console.log);
+        console.log(css, 'CSSS');
         const title = new URL(window.location.href)?.searchParams.get("title");
         title && setTitle(title);
     }, []);
@@ -24,9 +23,6 @@ export const ModalIframe = () => {
     useEffect(() => {
         if (!window?.parent?.window) return;
         const modalElm = window.parent.window.document.body.querySelector<HTMLDivElement>(".modals");
-
-        console.log(modalElm, "modal iframe");
-
         setParentModal(modalElm);
     }, []);
 

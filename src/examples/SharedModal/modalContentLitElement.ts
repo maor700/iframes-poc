@@ -10,7 +10,6 @@ export class HelloComponent extends LitElement {
   increase(ev: MouseEvent) {
     ev.stopPropagation();
     this.counter = this.counter + 1;
-    console.log(this.counter);
     this.requestUpdate();
   };
 

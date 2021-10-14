@@ -60,7 +60,6 @@ export const StateManagementIframeWrapper = () => {
         title && setIframeType(title);
         title && import(`./reducers/${title}`).then((module: any) => {
             const reducer = module?.[title];
-            console.log(reducer);
             injectAsyncReducer(s, title, reducer)
         })
         setStore(s);

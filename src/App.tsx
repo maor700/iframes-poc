@@ -14,7 +14,6 @@ import { SharedModelIfarme } from './examples/SharedModel/SharedModelIfarme';
 import { NotificationIframe } from './examples/Notofications/IframeNotifications';
 import { ModalIframe } from './examples/SharedModal/ModalIframe';
 import { StateManagementIframeWrapper } from './examples/StateManagment/StateManagmentIframe';
-import UiThings from './examples/UiThings.tsx/UiThings';
 import { UiThingsIframe } from './examples/UiThings.tsx/UiThingsIframe';
 import { PWACacheIframe } from './examples/PWACache/PWACacheIframe';
 import { StateManagmentDexieIframe } from './examples/StateManagment/StateManagmentDexieIframe';
