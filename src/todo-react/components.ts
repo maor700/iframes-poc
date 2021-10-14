@@ -3,7 +3,7 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import type { JSX } from 'todo-app';
+import type { JSX } from '../todo-app';
 
 
 

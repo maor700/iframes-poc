@@ -1,0 +1,16 @@
+{
+  "entries": [
+    "./components/todo-app/todo-app.js",
+    "./components/todo-footer/todo-footer.js",
+    "./components/todo-header/todo-header.js",
+    "./components/todo-list/todo-list.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "2.4.0",
+    "typescriptVersion": "4.1.3"
+  },
+  "collections": [],
+  "bundles": [],
+  "global": "./global/app.js"
+}

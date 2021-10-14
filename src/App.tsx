@@ -18,7 +18,7 @@ import UiThings from './examples/UiThings.tsx/UiThings';
 import { UiThingsIframe } from './examples/UiThings.tsx/UiThingsIframe';
 import { PWACacheIframe } from './examples/PWACache/PWACacheIframe';
 import { StateManagmentDexieIframe } from './examples/StateManagment/StateManagmentDexieIframe';
-import { defineCustomElements } from "todo-app/dist/loader";
+import { defineCustomElements } from "./todo-app/dist/loader";
 import { TodoAppData } from "./examples/StateManagment/todoDbService"
 
 defineCustomElements();
