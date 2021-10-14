@@ -2,6 +2,7 @@ import React, { DialogHTMLAttributes, FC, useEffect, useRef, useState } from "re
 import { ModalPortal } from "./ModalPortal";
 import { UILauncher } from "./UiLauncher";
 import { useCssAsStringLoader } from "./useCssAsStringLoader";
+/* eslint import/no-webpack-loader-syntax: off */
 // @ts-ignore
 import cssBase64 from "!url-loader!./ModalIframe.css";
 
