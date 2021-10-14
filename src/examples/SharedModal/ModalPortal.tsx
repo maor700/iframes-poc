@@ -20,7 +20,6 @@ export const ModalPortal: FC<{ css: string, name: string, isOpen?: boolean, posi
         hostDoc.body?.append(modalElmTemp);
 
         return () => {
-            shadowDom.innerHTML = "";
             modalElmTemp.remove()
         }
     }, []);
