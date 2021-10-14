@@ -1,7 +1,10 @@
 import React, { DialogHTMLAttributes, FC, useEffect, useRef, useState } from "react";
 import { ModalPortal } from "./ModalPortal";
 import { UILauncher } from "./UiLauncher";
-import "./ModalIframe.css"
+// import "./ModalIframe.css"
+/* eslint import/no-webpack-loader-syntax: off */
+// @ts-ignore
+import css from "!!raw-loader!./ModalIframe.css";
 
 export const ModalIframe = () => {
     const [counter, setCounter] = useState<number>(0);
@@ -40,16 +43,13 @@ export const ModalIframe = () => {
     return (
         <>
             <button onClick={() => { setShowReactModal(true) }}>Show Modal</button>
-            {showReactModal && <ModalPortal name="my-modal">
+            {showReactModal && <ModalPortal css={css} name="my-modal">
                 <div className="modal-wrapper">
 
                     <dialog id="my-dialog" open={showReactModal}>
                         <div className="close" onClick={() => { setShowReactModal(false) }}>X</div>
                         <div className="dialog-content">
                             <h3>{title}</h3>
-                            <div ref={modalContentRef} style={{ color: "red" }}>
-                                <hello-component />
-                            </div>
                             <button onClick={() => { setCounter(counter + 1) }}>increce</button>
                             <div className="counter">{counter}</div>
                             <button onClick={() => { (window.parent as any).Toaster.info("213123") }}> Show Toaster Message</button>
