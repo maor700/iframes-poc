@@ -44,6 +44,9 @@ function App() {
     <>
       <Router>
         <Switch>
+        <Route strict exact path="/">
+            <ExamplesMenu />
+          </Route>
           <Route path="/menu">
             <ExamplesMenu />
           </Route>
